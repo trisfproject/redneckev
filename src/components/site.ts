@@ -14,7 +14,6 @@ export const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURICom
 export const navItems = [
   { label: 'Home', href: withBase('') },
   { label: 'Services', href: withBase('services/') },
-  { label: 'Garage', href: withBase('garage/') },
   { label: 'About', href: withBase('about/') },
   { label: 'Contact', href: withBase('contact/') },
 ];
