@@ -5,7 +5,7 @@
   "private": true,
   "description": "Production-ready Astro website for Redneck EV, built for GitHub Pages.",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "astro dev",
