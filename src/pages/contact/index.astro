@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { whatsappHref } from '../../components/site';
+import { whatsappHref, workshopAddress } from '../../components/site';
 ---
 
 <Layout title="Contact | Redneck EV" description="Hubungi Redneck EV melalui WhatsApp, sosial media, jam operasional, dan lokasi placeholder Google Maps untuk service EV.">
@@ -21,6 +21,14 @@ import { whatsappHref } from '../../components/site';
           <p class="mt-1 text-zinc-500">Emergency and home service by appointment.</p>
         </article>
         <article class="garage-card rounded-lg p-6">
+          <h2 class="text-xl font-black uppercase text-white">Workshop Location</h2>
+          <p class="mt-3 text-zinc-400">
+            {workshopAddress.line1}<br />
+            {workshopAddress.line2}<br />
+            {workshopAddress.city}
+          </p>
+        </article>
+        <article class="garage-card rounded-lg p-6">
           <h2 class="text-xl font-black uppercase text-white">Social Media</h2>
           <div class="mt-4 flex flex-wrap gap-3">
             <a class="rounded-sm border border-white/15 px-4 py-2 text-zinc-300 hover:border-red-400 hover:text-white" href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
@@ -36,8 +44,11 @@ import { whatsappHref } from '../../components/site';
     <div class="garage-card grid min-h-80 place-items-center rounded-lg border-dashed p-8 text-center">
       <div>
         <p class="text-sm font-black uppercase tracking-[0.28em] text-orange-300">Google Maps Placeholder</p>
-        <h2 class="mt-4 text-3xl font-black uppercase text-white">Redneck EV Garage Location</h2>
-        <p class="mt-4 max-w-2xl leading-7 text-zinc-400">Embed Google Maps here once the official workshop location is ready to publish.</p>
+        <h2 class="mt-4 text-3xl font-black uppercase text-white">Redneck EV Workshop Location</h2>
+        <p class="mt-4 max-w-2xl leading-7 text-zinc-400">
+          {workshopAddress.line1}, {workshopAddress.line2}, {workshopAddress.city}.<br />
+          Google Maps embed will be added once official navigation coordinates are published.
+        </p>
       </div>
     </div>
   </section>

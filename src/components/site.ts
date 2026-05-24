@@ -11,6 +11,12 @@ export const whatsappNumber = '6282124545458';
 export const whatsappText = 'Halo Redneck EV, saya mau konsultasi service EV.';
 export const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
 
+export const workshopAddress = {
+  line1: 'Bukit Cilegon Asri',
+  line2: 'Jalan Asri 2, Blok KD/26',
+  city: 'Cilegon',
+};
+
 export const navItems = [
   { label: 'Home', href: withBase('') },
   { label: 'Services', href: withBase('services/') },

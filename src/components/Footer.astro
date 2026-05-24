@@ -1,5 +1,5 @@
 ---
-import { navItems, whatsappHref } from './site';
+import { navItems, whatsappHref, workshopAddress } from './site';
 ---
 
 <footer class="border-t border-white/10 bg-black/55 py-12">
@@ -15,9 +15,13 @@ import { navItems, whatsappHref } from './site';
       </div>
     </div>
     <div>
-      <p class="font-black uppercase tracking-[0.18em] text-zinc-200">Contact</p>
+      <p class="font-black uppercase tracking-[0.18em] text-zinc-200">Contact & Location</p>
       <a class="mt-4 inline-flex text-zinc-400 transition hover:text-white" href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp Redneck EV</a>
       <p class="mt-2 text-zinc-500">Mon-Sat, 09:00-18:00</p>
+      <p class="mt-4 text-sm text-zinc-400">
+        {workshopAddress.line1}<br />
+        {workshopAddress.line2}, {workshopAddress.city}
+      </p>
     </div>
   </div>
   <div class="container-shell mt-10 border-t border-white/10 pt-6 text-sm text-zinc-500">
