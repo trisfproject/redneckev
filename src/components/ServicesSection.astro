@@ -11,6 +11,14 @@ import beforeAfterImage from '../assets/images/gallery/before-after-showcase.web
 const { full = false } = Astro.props;
 const items = full ? services : services.slice(0, 4);
 const serviceImages = [eBikeImage, mechanicImage, lithiumImage, repairImage, toolsImage, beforeAfterImage];
+
+const gridClass = full
+  ? "grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+  : "grid gap-6 md:grid-cols-2 lg:grid-cols-4";
+
+const sizes = full
+  ? "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+  : "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw";
 ---
 
 <section class="py-20 sm:py-24">
@@ -27,27 +35,30 @@ const serviceImages = [eBikeImage, mechanicImage, lithiumImage, repairImage, too
       )}
     </div>
 
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div class={gridClass}>
       {items.map((service) => (
         <article class="garage-card group overflow-hidden rounded-lg transition duration-300 hover:-translate-y-1 hover:border-red-500/45">
-          <div class="aspect-[4/3] overflow-hidden">
+          <div class="aspect-[16/10] overflow-hidden">
             <Image
               class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               src={serviceImages[services.indexOf(service)]}
-              alt={`${service.title} visual at Redneck EV garage`}
+              alt={`${service.title} visual at Redneck EV workshop`}
               loading="lazy"
               decoding="async"
               widths={[360, 520, 720, 960]}
-              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              sizes={sizes}
             />
           </div>
-          <div class="p-6">
-            <span class="mb-7 inline-flex rounded-sm bg-orange-500/10 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-orange-300">{service.tag}</span>
-            <h3 class="text-2xl font-black uppercase text-white">{service.title}</h3>
-            <p class="mt-4 leading-7 text-zinc-400">{service.description}</p>
+          <div class="p-5">
+            <span class="mb-4 inline-flex rounded-sm bg-orange-500/10 px-2.5 py-1 text-xs font-black uppercase tracking-[0.22em] text-orange-300">{service.tag}</span>
+            <h3 class={full ? "text-xl xl:text-2xl font-black uppercase text-white leading-snug" : "text-lg xl:text-xl font-black uppercase text-white leading-snug"}>
+              {service.title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">{service.description}</p>
           </div>
         </article>
       ))}
     </div>
   </div>
 </section>
+
