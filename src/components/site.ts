@@ -35,6 +35,11 @@ export const services = [
     tag: 'Lithium',
   },
   {
+    title: 'Home Service',
+    description: 'Layanan panggilan untuk inspeksi, emergency repair, maintenance berkala, dan konsultasi upgrade.',
+    tag: 'On Call',
+  },
+  {
     title: 'Controller Tuning',
     description: 'Kalibrasi akselerasi, limiter, regenerative setting, respons throttle, dan efisiensi daya.',
     tag: 'Tuning',
@@ -43,10 +48,5 @@ export const services = [
     title: 'EV Conversion',
     description: 'Konversi ringan untuk kendaraan custom, pemetaan komponen, wiring, battery box, dan commissioning.',
     tag: 'Build',
-  },
-  {
-    title: 'Home Service',
-    description: 'Layanan panggilan untuk inspeksi, emergency repair, maintenance berkala, dan konsultasi upgrade.',
-    tag: 'On Call',
   },
 ];
