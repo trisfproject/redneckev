@@ -1,0 +1,54 @@
+---
+import { navItems, whatsappHref } from './site';
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
+  <nav class="container-shell flex h-20 items-center justify-between" aria-label="Primary navigation">
+    <a href={navItems[0].href} class="group flex items-center gap-3" aria-label="Redneck EV home">
+      <span class="grid h-11 w-11 place-items-center rounded-sm border border-red-500/70 bg-red-600/15 font-black text-red-400 red-glow">REV</span>
+      <span>
+        <span class="block text-sm font-black uppercase tracking-[0.28em] text-white">Redneck EV</span>
+        <span class="block text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400">Custom Electric Garage</span>
+      </span>
+    </a>
+
+    <div class="hidden items-center gap-1 lg:flex">
+      {navItems.map((item) => (
+        <a class="rounded-sm px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-zinc-300 transition hover:bg-white/10 hover:text-white" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <a class="hidden rounded-sm bg-red-600 px-5 py-3 text-sm font-black uppercase tracking-[0.16em] text-white shadow-lg shadow-red-950/40 transition hover:bg-orange-500 lg:inline-flex" href={whatsappHref} target="_blank" rel="noreferrer">
+      WhatsApp
+    </a>
+
+    <button id="menu-toggle" class="grid h-11 w-11 place-items-center rounded-sm border border-white/15 bg-white/5 text-white lg:hidden" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="h-0.5 w-5 bg-current shadow-[0_7px_0_currentColor,0_-7px_0_currentColor]"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-black/95 lg:hidden">
+    <div class="container-shell grid gap-2 py-5">
+      {navItems.map((item) => (
+        <a class="rounded-sm border border-white/10 px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] text-zinc-200" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+      <a class="rounded-sm bg-red-600 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white" href={whatsappHref} target="_blank" rel="noreferrer">
+        Chat WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('#menu-toggle');
+  const menu = document.querySelector('#mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    menu?.classList.toggle('hidden');
+  });
+</script>

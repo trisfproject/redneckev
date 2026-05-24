@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaragePreview from '../../components/GaragePreview.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<Layout title="Garage | Redneck EV" description="Inside The Garage Redneck EV: workshop atmosphere, repair process, before-after work, battery bench, and EV repair visuals.">
+  <section class="container-shell pt-36 pb-8">
+    <p class="text-sm font-black uppercase tracking-[0.28em] text-orange-300">Inside The Garage</p>
+    <h1 class="mt-4 max-w-4xl text-4xl font-black uppercase text-white sm:text-6xl">Real EV garage energy, from dirty diagnostics to clean handover.</h1>
+  </section>
+  <GaragePreview full />
+  <section class="container-shell pb-20">
+    <div class="grid gap-5 md:grid-cols-3">
+      {['Before inspection', 'Repair process', 'After delivery'].map((label, index) => (
+        <article class="garage-card rounded-lg p-6">
+          <span class="text-sm font-black text-red-400">0{index + 1}</span>
+          <h2 class="mt-5 text-2xl font-black uppercase text-white">{label}</h2>
+          <p class="mt-4 leading-7 text-zinc-400">Dokumentasi pekerjaan untuk membantu pemilik memahami kondisi unit, part yang diganti, dan perubahan setelah servis.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTASection title="Bring the unit into the bay." text="Kirim foto kondisi unit dan target pengerjaan. Kami bantu pilih jalur repair, upgrade, atau conversion yang paling tepat." />
+</Layout>

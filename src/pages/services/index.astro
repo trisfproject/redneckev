@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<Layout title="Services | Redneck EV" description="Layanan Redneck EV: service sepeda listrik, motor listrik, upgrade lithium battery, controller tuning, EV conversion, dan home service.">
+  <section class="container-shell pt-36 pb-8">
+    <p class="text-sm font-black uppercase tracking-[0.28em] text-red-400">Redneck EV Services</p>
+    <h1 class="mt-4 max-w-4xl text-4xl font-black uppercase text-white sm:text-6xl">EV repair, lithium upgrades, and custom conversion work.</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-zinc-400">Setiap unit dicek dari gejala, wiring, battery, controller, charger, hingga kebutuhan riding. Fokus kami: hasil yang terasa enak dipakai dan tetap masuk akal secara teknis.</p>
+  </section>
+  <ServicesSection full />
+  <CTASection title="Book a diagnostic slot." text="Ceritakan keluhan unit dan lokasi Anda. Untuk kasus tertentu, Redneck EV bisa bantu dengan home service atau pickup recommendation." />
+</Layout>
