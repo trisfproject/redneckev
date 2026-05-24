@@ -5,32 +5,32 @@ import { Image } from 'astro:assets';
 import workshopImage from '../../assets/images/about/workshop-atmosphere.webp';
 ---
 
-<Layout title="About | Redneck EV" description="Cerita Redneck EV, visi, misi, dan budaya garage untuk EV ringan, sepeda listrik, motor listrik, lithium battery, dan conversion.">
+<Layout title="About | Redneck EV" description="Cerita Redneck EV, visi, misi, dan layanan bengkel service untuk sepeda listrik, motor listrik, upgrade lithium battery, dan perawatan harian.">
   <section class="container-shell grid gap-10 pt-36 pb-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
     <div>
       <p class="text-sm font-black uppercase tracking-[0.28em] text-red-400">About Redneck EV</p>
       <h1 class="mt-4 text-4xl font-black uppercase text-white sm:text-6xl text-balance">Keep your EV ready everyday.</h1>
     </div>
-    <div class="garage-card rounded-lg p-7">
-      <p class="text-lg leading-8 text-zinc-300">Redneck EV hadir untuk service, perawatan, dan pengecekan sepeda listrik & motor listrik agar tetap nyaman dipakai setiap hari. Kami juga mendukung pengecekan dan penanganan langsung melalui layanan on-call sesuai kebutuhan.</p>
+    <div class="garage-card rounded-lg p-6 sm:p-7">
+      <p class="text-base sm:text-lg leading-relaxed sm:leading-8 text-zinc-300">Redneck EV hadir untuk service, perawatan, dan pengecekan sepeda listrik & motor listrik agar tetap nyaman dipakai setiap hari. Kami juga mendukung pengecekan dan penanganan langsung melalui layanan on-call sesuai kebutuhan.</p>
     </div>
   </section>
 
   <section class="container-shell grid gap-5 pb-20 md:grid-cols-2">
-    <article class="garage-card rounded-lg p-7">
+    <article class="garage-card rounded-lg p-6 sm:p-7">
       <h2 class="text-3xl font-black uppercase text-white">Vision</h2>
-      <p class="mt-4 leading-7 text-zinc-400">Menjadi EV custom garage yang membantu kendaraan listrik ringan terasa lebih reliable, lebih kuat, dan lebih siap dipakai di jalan Indonesia.</p>
+      <p class="mt-3 text-sm sm:text-base leading-relaxed sm:leading-7 text-zinc-400">Menjadi bengkel service EV yang membantu kendaraan listrik ringan terasa lebih reliable, lebih kuat, dan lebih siap dipakai di jalan Indonesia.</p>
     </article>
-    <article class="garage-card rounded-lg p-7">
+    <article class="garage-card rounded-lg p-6 sm:p-7">
       <h2 class="text-3xl font-black uppercase text-white">Mission</h2>
-      <p class="mt-4 leading-7 text-zinc-400">Mengedukasi pemilik, memperbaiki dengan proses jelas, memilih part dengan akal sehat, dan membangun upgrade yang tidak mengorbankan keselamatan.</p>
+      <p class="mt-3 text-sm sm:text-base leading-relaxed sm:leading-7 text-zinc-400">Mengedukasi pemilik, memperbaiki dengan proses jelas, memilih part dengan akal sehat, dan membangun upgrade yang tidak mengorbankan keselamatan.</p>
     </article>
   </section>
 
   <section class="container-shell pb-20">
     <div class="overflow-hidden rounded-lg">
       <Image
-        class="h-[420px] w-full object-cover"
+        class="h-64 sm:h-96 md:h-[420px] w-full object-cover"
         src={workshopImage}
         alt="Premium dark EV workshop atmosphere with red and orange lighting"
         loading="lazy"
