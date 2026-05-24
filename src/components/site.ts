@@ -51,26 +51,3 @@ export const services = [
     tag: 'On Call',
   },
 ];
-
-export const garageImages = [
-  {
-    title: 'Lithium Battery Bench',
-    src: 'https://images.unsplash.com/photo-1617704548623-340376564e68?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Industrial workbench with electronics tools and battery components',
-  },
-  {
-    title: 'Electric Motorcycle Bay',
-    src: 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Motorcycle detail in a dark workshop',
-  },
-  {
-    title: 'E-Bike Diagnostics',
-    src: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Electric bicycle in an urban garage setup',
-  },
-  {
-    title: 'Tools And Wiring',
-    src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Workshop tools and repair equipment',
-  },
-];

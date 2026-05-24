@@ -1,13 +1,19 @@
 ---
 import { whatsappHref, withBase } from './site';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/hero/hero-electric-motorcycle.webp';
 ---
 
 <section class="relative min-h-screen overflow-hidden pt-28">
-  <img
+  <Image
     class="absolute inset-0 h-full w-full object-cover opacity-40"
-    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=82"
+    src={heroImage}
     alt="Dark EV garage workshop with tools"
     loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    widths={[640, 960, 1280, 1600]}
+    sizes="100vw"
   />
   <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,8,0.96)_0%,rgba(5,6,8,0.72)_46%,rgba(5,6,8,0.28)_100%)]"></div>
   <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#08090b] to-transparent"></div>

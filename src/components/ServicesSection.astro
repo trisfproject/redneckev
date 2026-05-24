@@ -1,7 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import { services, withBase } from './site';
+import eBikeImage from '../assets/images/services/electric-bicycle-workshop.webp';
+import lithiumImage from '../assets/images/services/lithium-battery-upgrade.webp';
+import repairImage from '../assets/images/garage/ev-repair-process.webp';
+import mechanicImage from '../assets/images/garage/ev-mechanic-garage.webp';
+import toolsImage from '../assets/images/garage/garage-tools.webp';
+import beforeAfterImage from '../assets/images/gallery/before-after-showcase.webp';
+
 const { full = false } = Astro.props;
 const items = full ? services : services.slice(0, 4);
+const serviceImages = [eBikeImage, mechanicImage, lithiumImage, toolsImage, beforeAfterImage, repairImage];
 ---
 
 <section class="py-20 sm:py-24">
@@ -20,10 +29,23 @@ const items = full ? services : services.slice(0, 4);
 
     <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {items.map((service) => (
-        <article class="garage-card group rounded-lg p-6 transition duration-300 hover:-translate-y-1 hover:border-red-500/45">
-          <span class="mb-7 inline-flex rounded-sm bg-orange-500/10 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-orange-300">{service.tag}</span>
-          <h3 class="text-2xl font-black uppercase text-white">{service.title}</h3>
-          <p class="mt-4 leading-7 text-zinc-400">{service.description}</p>
+        <article class="garage-card group overflow-hidden rounded-lg transition duration-300 hover:-translate-y-1 hover:border-red-500/45">
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              src={serviceImages[services.indexOf(service)]}
+              alt={`${service.title} visual at Redneck EV garage`}
+              loading="lazy"
+              decoding="async"
+              widths={[360, 520, 720, 960]}
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <div class="p-6">
+            <span class="mb-7 inline-flex rounded-sm bg-orange-500/10 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-orange-300">{service.tag}</span>
+            <h3 class="text-2xl font-black uppercase text-white">{service.title}</h3>
+            <p class="mt-4 leading-7 text-zinc-400">{service.description}</p>
+          </div>
         </article>
       ))}
     </div>

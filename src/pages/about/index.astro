@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import workshopImage from '../../assets/images/about/workshop-atmosphere.webp';
 ---
 
 <Layout title="About | Redneck EV" description="Cerita Redneck EV, visi, misi, dan budaya garage untuk EV ringan, sepeda listrik, motor listrik, lithium battery, dan conversion.">
@@ -27,7 +29,15 @@ import CTASection from '../../components/CTASection.astro';
 
   <section class="container-shell pb-20">
     <div class="overflow-hidden rounded-lg">
-      <img class="h-[420px] w-full object-cover" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=80" alt="Industrial workshop culture" loading="lazy" />
+      <Image
+        class="h-[420px] w-full object-cover"
+        src={workshopImage}
+        alt="Premium dark EV workshop atmosphere with red and orange lighting"
+        loading="lazy"
+        decoding="async"
+        widths={[640, 960, 1200, 1400]}
+        sizes="(min-width: 768px) 1120px, 100vw"
+      />
     </div>
   </section>
   <CTASection />

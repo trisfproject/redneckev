@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import GaragePreview from '../../components/GaragePreview.astro';
 import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import beforeAfterImage from '../../assets/images/gallery/before-after-showcase.webp';
 ---
 
 <Layout title="Garage | Redneck EV" description="Inside The Garage Redneck EV: workshop atmosphere, repair process, before-after work, battery bench, and EV repair visuals.">
@@ -10,6 +12,25 @@ import CTASection from '../../components/CTASection.astro';
     <h1 class="mt-4 max-w-4xl text-4xl font-black uppercase text-white sm:text-6xl">Real EV garage energy, from dirty diagnostics to clean handover.</h1>
   </section>
   <GaragePreview full />
+  <section class="container-shell pb-20">
+    <figure class="garage-card overflow-hidden rounded-lg">
+      <div class="aspect-video overflow-hidden">
+        <Image
+          class="h-full w-full object-cover"
+          src={beforeAfterImage}
+          alt="Before and after electric motorcycle service showcase at Redneck EV"
+          loading="lazy"
+          decoding="async"
+          widths={[640, 960, 1200]}
+          sizes="(min-width: 768px) 1120px, 100vw"
+        />
+      </div>
+      <figcaption class="p-6">
+        <h2 class="text-2xl font-black uppercase text-white">Before-after showcase</h2>
+        <p class="mt-3 leading-7 text-zinc-400">Placeholder visual untuk dokumentasi unit sebelum inspeksi dan setelah pengerjaan selesai.</p>
+      </figcaption>
+    </figure>
+  </section>
   <section class="container-shell pb-20">
     <div class="grid gap-5 md:grid-cols-3">
       {['Before inspection', 'Repair process', 'After delivery'].map((label, index) => (

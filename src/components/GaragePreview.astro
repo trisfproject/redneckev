@@ -1,6 +1,34 @@
 ---
-import { garageImages, withBase } from './site';
+import { Image } from 'astro:assets';
+import { withBase } from './site';
+import mechanicImage from '../assets/images/garage/ev-mechanic-garage.webp';
+import repairImage from '../assets/images/garage/ev-repair-process.webp';
+import toolsImage from '../assets/images/garage/garage-tools.webp';
+import lithiumImage from '../assets/images/services/lithium-battery-upgrade.webp';
+
 const { full = false } = Astro.props;
+const garageImages = [
+  {
+    title: 'EV Mechanic Bay',
+    src: mechanicImage,
+    alt: 'Premium dark EV mechanic garage with electric vehicle repair bay',
+  },
+  {
+    title: 'Repair Process',
+    src: repairImage,
+    alt: 'Electric motorcycle repair process with diagnostics and organized tools',
+  },
+  {
+    title: 'Garage Tools',
+    src: toolsImage,
+    alt: 'EV garage tools and diagnostic equipment on a matte black workbench',
+  },
+  {
+    title: 'Lithium Battery Bench',
+    src: lithiumImage,
+    alt: 'Lithium battery upgrade bench with BMS and organized workshop tools',
+  },
+];
 const images = full ? garageImages : garageImages.slice(0, 3);
 ---
 
@@ -21,7 +49,17 @@ const images = full ? garageImages : garageImages.slice(0, 3);
     <div class="grid gap-5 md:grid-cols-3">
       {images.map((image, index) => (
         <figure class={`garage-card overflow-hidden rounded-lg ${index === 0 && !full ? 'md:col-span-2' : ''}`}>
-          <img class="h-72 w-full object-cover transition duration-500 hover:scale-105" src={image.src} alt={image.alt} loading="lazy" />
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+              widths={[360, 520, 720, 960]}
+              sizes={index === 0 && !full ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
+            />
+          </div>
           <figcaption class="flex items-center justify-between gap-4 p-5">
             <span class="font-black uppercase tracking-[0.12em] text-white">{image.title}</span>
             <span class="h-2 w-12 rounded-full bg-gradient-to-r from-red-600 to-orange-400"></span>
