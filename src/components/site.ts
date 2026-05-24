@@ -7,7 +7,7 @@ export const withBase = (path = '') => {
   return `${basePath}${cleanPath}`;
 };
 
-export const whatsappNumber = '6281234567890';
+export const whatsappNumber = '6282124545458';
 export const whatsappText = 'Halo Redneck EV, saya mau konsultasi service EV.';
 export const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
 
