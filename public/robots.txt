@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trisfproject.github.io/redneckev/sitemap-index.xml
+Sitemap: https://redneck.my.id/sitemap-index.xml

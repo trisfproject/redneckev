@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://trisfproject.github.io',
-  base: '/redneckev',
+  site: 'https://redneck.my.id',
+  base: '/',
   output: 'static',
   integrations: [sitemap()],
   vite: {
