@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
-import { withBase } from '../components/site';
+import { withBase, workshopAddress, whatsappNumber } from '../components/site';
 
 interface Props {
   title: string;
@@ -18,6 +18,58 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Redneck EV",
+  "alternateName": "REDNECK EV",
+  "image": new URL(withBase('og-image.webp'), Astro.site).toString(),
+  "@id": "https://redneck.my.id/#localbusiness",
+  "url": "https://redneck.my.id",
+  "telephone": `+${whatsappNumber}`,
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": `${workshopAddress.line1}, ${workshopAddress.line2}`,
+    "addressLocality": workshopAddress.city,
+    "addressRegion": "Banten",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-6.0125",
+    "longitude": "106.0500"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": `+${whatsappNumber}`,
+    "contactType": "customer service",
+    "availableLanguage": ["Indonesian", "English"]
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Cilegon"
+  },
+  "sameAs": [
+    `https://wa.me/${whatsappNumber}`
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Redneck EV",
+  "url": "https://redneck.my.id"
+};
 ---
 
 <!doctype html>
@@ -31,13 +83,34 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
     <link rel="icon" href={withBase('favicon.ico')} />
+    
+    <!-- Geolocation Local SEO Metadata -->
+    <meta name="geo.region" content="ID-BT" />
+    <meta name="geo.placename" content="Cilegon" />
+    <meta name="geo.position" content="-6.0125;106.0500" />
+    <meta name="ICBM" content="-6.0125, 106.0500" />
+
+    <!-- OpenGraph Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Redneck EV" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Tags -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:url" content={canonicalUrl} />
+
     <meta name="theme-color" content="#08090b" />
+
+    <!-- Structured Data Schemas -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body class="selection:bg-red-600 selection:text-white">
     <Navbar />
